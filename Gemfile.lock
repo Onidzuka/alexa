@@ -4,6 +4,7 @@ GEM
     alexa_verifier (1.0.0)
     backports (3.15.0)
     byebug (11.0.1)
+    geocoder (1.5.1)
     multi_json (1.13.1)
     mustermann (1.0.3)
     nio4r (2.5.1)
@@ -33,6 +34,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  geocoder
   puma
   ralyxa
   sinatra

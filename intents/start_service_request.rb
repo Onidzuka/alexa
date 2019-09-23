@@ -24,10 +24,14 @@ SERVICES = {
 intent 'StartServiceRequest' do
   service = request.slot_value("service")
 
-  price = SERVICES[service.to_sym][:price]
-  eta = SERVICES[service.to_sym][:eta]
+  if service && SERVICES.keys.include?(service.to_sym)
+    price = SERVICES[service.to_sym][:price]
+    eta = SERVICES[service.to_sym][:eta]
 
-  output_speech = "#{service} service price is #{price}. Typical estimated arrival is #{eta}. Would you like to continue with #{service} service?"
+    output_speech = "#{service} service price is #{price}. Typical estimated arrival is #{eta}. Would you like to continue with #{service} service?"
 
-  ask(output_speech, session_attributes: { service: service })
+    ask(output_speech)
+  else
+    tell("We could not identify request. Please try again.")
+  end
 end
