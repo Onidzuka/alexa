@@ -9,8 +9,8 @@ intent 'ContinueServiceRequest' do
     coordinates = request.request['context']['Geolocation']['coordinate']
     puts coordinates
 
-    result = Geocoder.search([coordinates['latitudeInDegrees'], coordinates['longitudeInDegrees']]).first
-    tell("OK, your location is #{result.address}")
+    address = Geocoder.address([coordinates['latitudeInDegrees'], coordinates['longitudeInDegrees']])
+    tell("OK, your location is #{address}")
   else
     tell('Thank you for using Honk. Bye.')
   end
