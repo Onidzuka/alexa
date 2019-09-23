@@ -10,6 +10,9 @@ intent 'ContinueServiceRequest' do
     puts coordinates
 
     address = Geocoder.address([coordinates['latitudeInDegrees'], coordinates['longitudeInDegrees']])
+
+    puts address
+
     tell("OK, your location is #{address}")
   else
     tell('Thank you for using Honk. Bye.')
