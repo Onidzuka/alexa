@@ -2,8 +2,11 @@ require 'sinatra'
 require 'ralyxa'
 require 'sinatra/reloader' if development?
 
-post '/' do
-  puts "Processing request!"
 
+get '/' do
+  'works! '
+end
+
+post '/' do
   Ralyxa::Skill.handle(request)
 end
