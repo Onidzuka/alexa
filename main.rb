@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'ralyxa'
+require 'dotenv'
 require 'sinatra/reloader' if development?
+
+Dotenv.load
 
 get '/' do
   'works! '

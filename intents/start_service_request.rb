@@ -28,7 +28,7 @@ intent 'StartServiceRequest' do
     price = SERVICES[service.to_sym][:price]
     eta = SERVICES[service.to_sym][:eta]
 
-    output_speech = "#{service} service price is #{price}. Typical estimated arrival is #{eta}. Would you like to continue with #{service} service?"
+    output_speech = "#{service} service price is #{price}. ETA is #{eta}. Would you like to continue with #{service} service?"
 
     ask(output_speech)
   else
