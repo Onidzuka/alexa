@@ -7,10 +7,9 @@ intent 'ContinueServiceRequest' do
 
   if SLOT_VALUES.include?(answer)
     coordinates = request.request['context']['Geolocation']['coordinate']
+    address = Geocoder.address([coordinates['latitudeInDegrees'], coordinates['longitudeInDegrees']], {lookup: :google, api_key: ENV.fetch('GOOGLE_PLACES_API_KEY')})
+
     puts coordinates
-
-    address = Geocoder.address([coordinates['latitudeInDegrees'], coordinates['longitudeInDegrees']])
-
     puts address
 
     tell("OK, your location is #{address}")
