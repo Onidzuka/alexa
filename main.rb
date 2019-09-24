@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'ralyxa'
 require 'dotenv'
+require 'active_support/all'
 require 'sinatra/reloader' if development?
 
 Dotenv.load
