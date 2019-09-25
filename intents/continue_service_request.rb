@@ -1,9 +1,10 @@
 require 'geocoder'
 
-SLOT_VALUES = ['continue service', 'continue please', 'yes please', 'continue', 'find me']
+SLOT_VALUES = ['continue service', 'continue please', 'yes please', 'continue']
 
 intent 'ContinueServiceRequest' do
   answer = request.slot_value("answer")
+  service = request.session_attribute("service")
 
   if SLOT_VALUES.include?(answer)
     Geocoder.configure(
@@ -26,7 +27,18 @@ intent 'ContinueServiceRequest' do
     state = locations.first.state
     zip_code = locations.first.postal_code
 
-    ask("OK, you are in #{city}, #{state}. Your zip code is: #{zip_code.split('').join(' ')}. I found #{locations.count} addresses near you: #{near_addresses}. Say address number, to continue with. Or, say add custom address, if your address is not listed.")
+    response = [
+      "OK, you are in #{city}, #{state}. Your zip code is: #{zip_code.split('').join(' ')}. I found #{locations.count} addresses near you: #{near_addresses}. ",
+      "Say address number, to continue with. Or, say add custom address, if your address is not listed."
+    ]
+
+    ask(response.join, session_attributes: {
+      service: service,
+      street_addresses: street_addresses,
+      city: city,
+      state: state,
+      zip_code: zip_code
+    })
   else
     ask("I could not identify your request. Would you like to continue?")
   end
