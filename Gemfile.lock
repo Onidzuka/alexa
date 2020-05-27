@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.1.6.2)
+    activesupport (5.2.4.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -9,12 +9,12 @@ GEM
     alexa_verifier (1.0.0)
     backports (3.15.0)
     byebug (11.0.1)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     dotenv (2.7.5)
     geocoder (1.5.1)
-    i18n (1.6.0)
+    i18n (1.8.2)
       concurrent-ruby (~> 1.0)
-    minitest (5.11.3)
+    minitest (5.14.1)
     multi_json (1.13.1)
     mustermann (1.0.3)
     nio4r (2.5.1)
@@ -39,7 +39,7 @@ GEM
       tilt (~> 2.0)
     thread_safe (0.3.6)
     tilt (2.0.9)
-    tzinfo (1.2.5)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
 
 PLATFORMS
